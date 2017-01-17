@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>PrettyCSS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script type="text/javascript">
+    	function cssReformat() {
+    		var messyCSS = new String(document.getElementById("inputCSS").value);
+    		var elements = messyCSS.split("}");
+    		var finalOut = "";
+    		var indents = "";
+    		var seperateElms = "";
+
+
+    		for (i = 0; i < elements.length - 1; i++){
+    			seperateElms += elements[i] + "\r\n}\r\n\r";
+    		}
+
+    		seperateElms = seperateElms.split("{");
+    		
+    		for (i = 0; i < seperateElms.length - 1; i++){
+    			indents += seperateElms[i] + "{\r\n\t";
+    		}
+    		indents +=  seperateElms[seperateElms.length - 1]
+
+    		indents =  indents.split(";");
+    		for (i = 0; i < indents.length - 1; i++){
+    			finalOut += indents[i] + ";\r\n\t";
+    		}
+
+    		finalOut += indents[indents.length - 1]
+
+
+    		document.getElementById("output").innerHTML = finalOut;
+
+
+    		
+    	}
+	</script>
+    <style type="text/css">
+    	h1 { color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 175px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; }
+    	h2 { color: #111; font-family: 'Open Sans', sans-serif; font-size: 30px; font-weight: 300; line-height: 32px; text-align: center; }
+    	p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; line-height: 24px; margin: 0 0 24px; text-align: justify; text-justify: inter-word; }
+        textarea{
+            height: 300px;
+            width: 100%;
+            border-style: solid;
+            border-width: medium
+            max-width: 100%;
+        }
+    	.mainContentIn{
+    		position: absolute;
+    		width: 49%;
+    		left: 0%;
+    		
+    	}
+    	.mainContentOut{
+    		position: absolute;
+    		width: 49%;
+    		right: 0%;
+
+            
+    	}
+    	.container {
+    		position: relative;
+    		width: 100%;
+    		height: 70%;
+    	}
+    	#banner {
+    		text-align: center;
+    		width: 100%;
+    		height: 40%;
+    	}
+    	.buttonDiv {
+            position: absolute;
+            text-align: center;
+            height: 10%;
+            bottom:0;
+    	}
+    	.black-background {background-color:#000000;}
+    	.white {color:#ffffff;}
+    </style>
+
+
+</head>
+<body>
+	<div id = "banner">
+		<h1>CSS Prettifier</h1>
+	</div>
+	<div class = "container">
+
+		<div class="mainContentIn">
+			<h2>Your Minimized CSS</h2>
+			<textarea name = "rawCSS" id= "inputCSS"></textarea>
+			
+			
+			<p id = 'test'></p>
+
+		</div>
+
+
+		<div class="mainContentOut">
+			<h2>Pretty CSS</h2>
+            <textarea id ='output'></textarea> 
+
+
+	</div>
+            </div>
+                <div class = "buttonDiv">
+            <input type="submit" value="Make Pretty" class="btn btn-default black-background white" onclick= "cssReformat()">
+            
+        </div>
+	
+
+</body>
+</html>
