@@ -77,6 +77,9 @@
             height: 10%;
             bottom:0;
     	}
+        #solutionButton{
+            padding-top: 10px;
+        }
     	.black-background {background-color:#000000;}
     	.white {color:#ffffff;}
     </style>
@@ -85,31 +88,32 @@
 </head>
 <body>
 	<div id = "banner">
-		<h1>CSS Prettifier</h1>
+		<h1>CSS Pretty</h1>
 	</div>
 	<div class = "container">
 
-		<div class="mainContentIn">
-			<h2>Your Minimized CSS</h2>
-			<textarea name = "rawCSS" id= "inputCSS"></textarea>
-			
-			
-			<p id = 'test'></p>
-
-		</div>
-
-
-		<div class="mainContentOut">
-			<h2>Pretty CSS</h2>
-            <textarea id ='output'></textarea> 
+        <div class="col-xs-12 col-md-6 " >
+    		
+    			<h2>Your Minimized CSS</h2>
+    			<textarea  rows="15" class="form-control" name = "rawCSS" id= "inputCSS"></textarea>
+    			
+    			
+    			
 
 
-	</div>
-            </div>
-                <div class = "buttonDiv">
-            <input type="submit" value="Make Pretty" class="btn btn-default black-background white" onclick= "cssReformat()">
-            
         </div>
+        <div class="col-xs-12 col-md-6" >
+
+    			<h2>Pretty CSS</h2>
+                <textarea  rows="15" class="form-control" id ='output'></textarea> 
+
+        </div>
+        <div id = "solutionButton" class="col-xs-12 col-md-12 text-center">
+            <input  type="submit" value="Make Pretty" class="btn btn-default black-background white" onclick= "cssReformat()">
+        </div>
+    </div>
+            
+
 	
 
 </body>
